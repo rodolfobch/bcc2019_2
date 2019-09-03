@@ -29,12 +29,15 @@ public class JanelaTeste extends javax.swing.JFrame {
         Binding b = Bindings.createAutoBinding(
                 AutoBinding.UpdateStrategy.READ_WRITE,
                 jSlider1, 
-                ELProperty.create("${value}%"), 
+                ELProperty.create("${value}%"),
+                //BeanProperty.create("value"),
                 jTextField1,
                 BeanProperty.create("text")
                 );
         
         bg.addBinding(b);
+        
+        
         bg.bind();
     }
 
