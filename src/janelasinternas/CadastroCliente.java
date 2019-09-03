@@ -193,8 +193,13 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
             lstClientes.add(c);
             txtNome.setText("");
             txtEndereco.setText("");
-        }else
+        }else{
             lstClientes.add(c);
+            tbClientes.getSelectionModel().setSelectionInterval(
+                    lstClientes.size()-1, 
+                    lstClientes.size()-1);
+        }
+        
     }//GEN-LAST:event_btAdicionarActionPerformed
 
     private void btMostrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostrarListaActionPerformed
