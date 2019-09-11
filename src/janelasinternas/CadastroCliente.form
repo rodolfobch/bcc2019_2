@@ -28,24 +28,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btAdicionar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btExcluir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btMostrarLista" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="srcTbClientes" pref="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="lblEndereco" max="32767" attributes="0"/>
-                          <Component id="lblNome" pref="56" max="32767" attributes="0"/>
+                          <Component id="lblDataNasc" max="32767" attributes="0"/>
+                          <Component id="lblNome" alignment="0" pref="56" max="32767" attributes="0"/>
+                          <Component id="lblEndereco" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtNome" pref="227" max="32767" attributes="0"/>
                           <Component id="txtEndereco" max="32767" attributes="0"/>
+                          <Component id="txtDataNasc" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -66,14 +70,20 @@
                   <Component id="lblEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="srcTbClientes" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btMostrarLista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="srcTbClientes" pref="122" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btMostrarLista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,6 +102,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEndereco">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDataNasc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Data Nasc:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDataNasc">
     </Component>
     <Component class="javax.swing.JButton" name="btAdicionar">
       <Properties>
@@ -128,6 +145,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btMostrarListaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btExcluir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Excluir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluirActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

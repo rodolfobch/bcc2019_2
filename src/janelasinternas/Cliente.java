@@ -7,6 +7,7 @@ package janelasinternas;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Date;
 
 /**
  *
@@ -41,7 +42,20 @@ public class Cliente {
         this.endereco = endereco;
         propertyChangeSupport.firePropertyChange(PROP_ENDERECO, oldEndereco, endereco);
     }
-    
+
+    private Date dataNasc;
+
+    public static final String PROP_DATANASC = "dataNasc";
+
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        Date oldDataNasc = this.dataNasc;
+        this.dataNasc = dataNasc;
+        propertyChangeSupport.firePropertyChange(PROP_DATANASC, oldDataNasc, dataNasc);
+    }
     
     private transient final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
