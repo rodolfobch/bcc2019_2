@@ -129,6 +129,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        tbClientes.setAutoCreateRowSorter(true);
         tbClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -250,8 +251,14 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         int v[] = tbClientes.getSelectedRows();
         List<Cliente> c = new LinkedList<>();
         
-        for(int i=0;i<v.length;i++) c.add(lstClientes.get(v[i]));
-        lstClientes.removeAll(c);        
+        for(int i=0;i<v.length;i++) 
+        {
+            int idxTabela = v[i];
+            int idxList = tbClientes.convertRowIndexToModel(idxTabela);
+            c.add(lstClientes.get(idxList));
+        }
+        
+        lstClientes.removeAll(c);
     }//GEN-LAST:event_btExcluirActionPerformed
 
 
