@@ -15,6 +15,16 @@ import java.util.Date;
  */
 public class Cliente {
 
+    private Integer idCliente;
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+    
     private String nome;
 
     public static final String PROP_NOME = "nome";

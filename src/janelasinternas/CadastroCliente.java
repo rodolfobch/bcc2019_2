@@ -30,8 +30,8 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
      * Creates new form CadastroCliente
      */
     public CadastroCliente() {
-        lstClientes = new ArrayList<>();
-        lstClientes = ObservableCollections.observableList(lstClientes);
+        ClienteDAO cd = new ClienteDAO();
+        lstClientes = cd.listar();
         
         initComponents();
         
@@ -93,6 +93,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         tbClientes = new javax.swing.JTable();
         btMostrarLista = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -157,6 +158,13 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,10 +174,12 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btAdicionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btMostrarLista))
+                        .addComponent(btMostrarLista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSalvar))
                     .addComponent(srcTbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -178,7 +188,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
                             .addComponent(lblEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                             .addComponent(txtEndereco)
                             .addComponent(txtDataNasc))))
                 .addContainerGap())
@@ -199,12 +209,13 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
                     .addComponent(lblDataNasc)
                     .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(srcTbClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addComponent(srcTbClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btMostrarLista)
                     .addComponent(btAdicionar)
-                    .addComponent(btExcluir))
+                    .addComponent(btExcluir)
+                    .addComponent(btSalvar))
                 .addContainerGap())
         );
 
@@ -261,11 +272,26 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         lstClientes.removeAll(c);
     }//GEN-LAST:event_btExcluirActionPerformed
 
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        
+        ClienteDAO cd = new ClienteDAO();
+        
+        for(Cliente c: lstClientes){
+            if(c.getIdCliente()==null)
+                cd.inserir(c);
+            else{
+                //cd.alterar(c);
+            }
+        }
+        
+    }//GEN-LAST:event_btSalvarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btMostrarLista;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JLabel lblDataNasc;
     private javax.swing.JLabel lblEndereco;
     private javax.swing.JLabel lblNome;
