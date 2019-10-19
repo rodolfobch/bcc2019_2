@@ -21,12 +21,13 @@ public class ClienteDAO extends DAO<Cliente> {
 
     @Override
     public boolean inserir(Cliente element) {
-        String sql = "INSERT INTO cliente (nome,endereco) values (?,?);";
+        String sql = "INSERT INTO cliente (nome,endereco,datanasc) values (?,?,?);";
         try{
             PreparedStatement stmt = conn.prepareStatement(sql,
                                         Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, element.getNome());
             stmt.setString(2, element.getEndereco());
+            stmt.setDate(3, element.getDataNasc());
             
             if(stmt.executeUpdate()==1){
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -66,6 +67,7 @@ public class ClienteDAO extends DAO<Cliente> {
                 c.setIdCliente(rs.getInt("id_cliente"));
                 c.setNome(rs.getString("nome"));
                 c.setEndereco(rs.getString("endereco"));
+                c.setDataNasc(rs.getDate("datanasc"));
                 lstClientes.add(c);
             }
         }catch(SQLException e){

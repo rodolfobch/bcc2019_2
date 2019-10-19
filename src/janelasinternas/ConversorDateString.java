@@ -7,7 +7,7 @@ package janelasinternas;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -29,7 +29,7 @@ public class ConversorDateString
     @Override
     public Date convertReverse(String t) {
         try{
-            return df.parse(t);
+            return new Date(df.parse(t).getTime());
         }catch(ParseException e){
             return null;
         }

@@ -7,7 +7,7 @@ package janelasinternas;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
